@@ -1,0 +1,19 @@
+.navbar {
+    height: 200px;
+    background-color: #0C356A;
+    display: flex;
+    align-items: start;
+    color: #fefefe;
+}
+
+.navbar-brand {
+    color: #fefefe;
+}
+
+.nav-link {
+    color: #fefefe;
+}
+
+.keatas{
+    margin-top: -100px;
+}

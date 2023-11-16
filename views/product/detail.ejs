@@ -1,0 +1,9 @@
+<div class="d-flex align-items-center">
+    <img src="<%= response.image %>" class="card-img-top" style="width: 18rem;">
+    <div class="content ps-5">
+        <h5 class="card-title"><%= response.nama_produk %></h5>
+        <p class="card-text"><%= `stok : ${response.stok} tipe produk : ${response.tipe}` %></p>
+        <p class="card-text"><%= `harga : ${response.harga_produk}` %></p>
+        <a href="/" class="btn btn-primary">Kembali</a>
+    </div>
+</div>
