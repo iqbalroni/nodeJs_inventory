@@ -19,7 +19,18 @@ class ProdukController {
     });
   }
 
-  async saveData(res, data) {
+  async saveData(res, data, err) {
+    if (err) {
+      const errornya = err.errors.map((el) => ({
+        errors: el.path + " " + el.msg,
+      }));
+      console.log(errornya);
+      return res.render("product/add", {
+        layout: "layout/master",
+        cardTitle: "tambah data",
+        error: errornya,
+      });
+    }
     const newData = new produk(data);
     await newData.save().then((response) => {
       res.redirect("/");

@@ -1,34 +1,45 @@
-<form action="/product/save" method="POST">
-    <div class="row">
-        <div class="form-group col-sm-6 mb-3">
-            <label>Image</label>
-            <input type="text" class="form-control" name="image" placeholder="Url image here">
-        </div>
-        <div class="form-group col-sm-6 mb-3">
-            <label>Nama Produk</label>
-            <input type="text" class="form-control" name="nama_produk" placeholder="nama produk">
-        </div>
-        <div class="form-group col-sm-6 mb-3">
-            <label>Harga Produk</label>
-            <input type="number" class="form-control" name="harga_produk" placeholder="Harga Produk">
-        </div>
-        <div class="form-group col-sm-6 mb-3">
-            <label>Stok</label>
-            <input type="number" class="form-control" name="stok" placeholder="stok produk">
-        </div>
-        <div class="form-group col-sm-6 mb-3">
-            <label>Tersedia</label>
-            <input type="text" class="form-control" name="tersedia" placeholder="terserdia di">
-        </div>
-        <div class="form-group col-md-6 mb-3">
-            <label>Tipe</label>
-            <select name="tipe" class="form-control">
-                <option value="" disabled selected>Pilih tipe...</option>
-                <option value="freebase">Freebase</option>
-                <option value="Saltnic">Saltnic</option>
-                <option value="Pod Friendly">Pod Friendly</option>
-            </select>
-        </div>
+<div class="">
+    <% if(typeof error != 'undefined'){ %>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            <% error.forEach((el)=>{ %>
+            <li><%= el.errors %></li>
+            <% }); %>
+        </ul>
     </div>
-    <button type="submit" class="btn btn-success mt-3">Tambah Data</button>
-</form>
+    <% } %>
+    <form action="/product/save" method="POST">
+        <div class="row">
+            <div class="form-group col-sm-6 mb-3">
+                <label>Image</label>
+                <input type="text" class="form-control" name="image" placeholder="Url image here">
+            </div>
+            <div class="form-group col-sm-6 mb-3">
+                <label>Nama Produk</label>
+                <input type="text" class="form-control" name="nama_produk" placeholder="nama produk">
+            </div>
+            <div class="form-group col-sm-6 mb-3">
+                <label>Harga Produk</label>
+                <input type="number" class="form-control" name="harga_produk" placeholder="Harga Produk">
+            </div>
+            <div class="form-group col-sm-6 mb-3">
+                <label>Stok</label>
+                <input type="number" class="form-control" name="stok" placeholder="stok produk">
+            </div>
+            <div class="form-group col-sm-6 mb-3">
+                <label>Tersedia</label>
+                <input type="text" class="form-control" name="tersedia" placeholder="terserdia di">
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label>Tipe</label>
+                <select name="tipe" class="form-control">
+                    <option value="" disabled selected>Pilih tipe...</option>
+                    <option value="freebase">Freebase</option>
+                    <option value="Saltnic">Saltnic</option>
+                    <option value="Pod Friendly">Pod Friendly</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Tambah Data</button>
+    </form>
+</div>

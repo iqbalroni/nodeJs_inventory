@@ -1,5 +1,6 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const { body, validationResult, check } = require("express-validator");
 const app = express();
 const bodyParser = require("body-parser");
 
@@ -17,10 +18,20 @@ app.get("/product/add", (req, res) => {
   CProduk.add(res);
 });
 
-app.post("/product/save", (req, res) => {
-  const data = req.body;
-  CProduk.save(res, data);
-});
+app.post(
+  "/product/save",
+  [
+    check("nama_produk").notEmpty(),
+    check("harga_produk").notEmpty(),
+    check("stok").notEmpty(),
+  ],
+  (req, res) => {
+    const er = validationResult(req);
+
+    const data = req.body;
+    CProduk.saveData(res, data,er);
+  }
+);
 
 app.get("/", async (req, res) => {
   CProduk.index(res);
